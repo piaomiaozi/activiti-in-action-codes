@@ -9,18 +9,23 @@ import org.activiti.engine.form.AbstractFormType;
  */
 public class JavascriptFormType extends AbstractFormType {
 
-    @Override
-    public String getName() {
-        return "javascript";
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -209366304275125772L;
 
-    @Override
-    public Object convertFormValueToModelValue(String propertyValue) {
-        return propertyValue;
-    }
+	@Override
+	public String getName() {
+		return "javascript";
+	}
 
-    @Override
-    public String convertModelValueToFormValue(Object modelValue) {
-        return (String) modelValue;
-    }
+	@Override
+	public Object convertFormValueToModelValue(String propertyValue) {
+		return propertyValue;
+	}
+
+	@Override
+	public String convertModelValueToFormValue(Object modelValue) {
+		return (String) modelValue;
+	}
 }
