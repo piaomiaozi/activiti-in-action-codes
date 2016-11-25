@@ -32,7 +32,7 @@ public class ActivitiWithSpringBootApplication {
         String[] beanNames = ctx.getBeanDefinitionNames();
         Arrays.sort(beanNames);
         for (String beanName : beanNames) {
-            // System.out.println("found bean -> " + beanName);
+             System.out.println("found bean -> " + beanName);
         }
     }
 }

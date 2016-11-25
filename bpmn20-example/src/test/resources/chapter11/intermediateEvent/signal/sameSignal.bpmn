@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <signal id="alert" name="alert"></signal>
   <process id="sameSignal" name="My process" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
@@ -11,7 +11,11 @@
       <signalEventDefinition signalRef="alert"></signalEventDefinition>
     </intermediateCatchEvent>
     <sequenceFlow id="flow2" sourceRef="startevent1" targetRef="signalintermediatecatchevent2"></sequenceFlow>
-    <userTask id="usertask1" name="User Task"></userTask>
+    <userTask id="usertask1" name="User Task">
+      <multiInstanceLoopCharacteristics isSequential="false">
+        <loopCardinality>2</loopCardinality>
+      </multiInstanceLoopCharacteristics>
+    </userTask>
     <userTask id="usertask2" name="User Task"></userTask>
     <sequenceFlow id="flow3" sourceRef="signalintermediatecatchevent1" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="signalintermediatecatchevent2" targetRef="usertask2"></sequenceFlow>
